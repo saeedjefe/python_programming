@@ -1,0 +1,7 @@
+README.txt
+function_test.py
+setup.py
+dirty_grammar.egg-info/PKG-INFO
+dirty_grammar.egg-info/SOURCES.txt
+dirty_grammar.egg-info/dependency_links.txt
+dirty_grammar.egg-info/top_level.txt
