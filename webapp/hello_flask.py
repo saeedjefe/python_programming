@@ -1,4 +1,4 @@
-from flask import Flask, render_template;
+from flask import Flask, render_template
 from function_test import hello
 
 
@@ -19,6 +19,6 @@ def hello( ) -> str:
 
 @app.route('/entry')
 def entery_page() -> 'html':
-    return "salam html";
+    return render_template('ntry.html', the_title='welcome to the search4 letters on the web!');
 
 app.run();
