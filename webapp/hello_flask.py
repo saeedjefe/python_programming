@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from function_test import hello
 
 
@@ -8,17 +8,18 @@ app = Flask(__name__)
 def salam() -> str:
     return "salam";
 
-@app.route('/dirty_grammar')
+@app.route('/dirty_grammar', methods=['POST'])
 def hello( ) -> str:
-    text = input("please enter your sentences");
     #get the text and return determiners
-    determiners = {"a","an","the","some","many", "much", "this","that", "those", "his", "her", "your", "my"};
-    split_text = text.split(" ");
-    found_determiners = determiners.intersection(split_text);
+    phrase = request.form['phrase'];
+    letters = {'a', 'an', 'the', 'your', 'my', 'your', 'his', 'her', 'many', 'much', 'few', 'a few', 'a lot of'};
+    split_text = phrase.split(" ");
+    found_determiners = letters.intersection(split_text);
     return str(found_determiners);
 
 @app.route('/entry')
 def entery_page() -> 'html':
-    return render_template('ntry.html', the_title='welcome to the search4 letters on the web!');
 
-app.run();
+    return render_template('entry.html', the_title='welcome to dirty grammar on the web!');
+
+app.run(debug=True);
