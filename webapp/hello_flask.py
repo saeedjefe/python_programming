@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def log_request(req: 'flask_request', res: str) -> None:
     with open('dirty_grammar.log', 'a') as log:
-        print( req.form, req.user_agent, req.remote_addr, file=log, sep='|');
+        print( req.form, req.user_agent, req.remote_addr, res,file=log, sep='|');
 
 
 @app.route('/dirty_grammar', methods=['POST'])
@@ -27,8 +27,16 @@ def entery_page() -> 'html':
 
 @app.route('/viewlog')
 def show_the_log() -> str:
-    with open('dirty_grammar.log') as view_log:
-        contents = view_log.read();
-    return escape(contents);
+    with open('dirty_grammar.log') as log:
+        contents = [];
+        for lines in log:
+            contents.append([]);
+            for line in  lines.split('|'):
+                contents[-1].append(line);
+        titles=('Form Data', 'Remote_addr', 'User_agent', 'Results');        
+    return  render_template('viewlog.html', 
+            the_row_titles=titles,
+            the_data=contents);
 
 app.run(debug=True);
+

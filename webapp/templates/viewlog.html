@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h2> <h2/>
+
+		<table>
+			<tr>
+			{% for row_title in the_row_titles %}
+			  <th>{{row_title}} </th>
+			{% endfor %}
+			</tr>
+			{% for items in the_data %}
+				<tr>
+				{% for item in items %}
+					
+					<td>{{item}} </td>
+			
+				{% endfor %}
+				</tr>
+			{% endfor %}
+
+		</table>
+
+
+{% endblock %}
+
+
