@@ -3,8 +3,8 @@ from data_manipulation import ast_agent
 
 def login(auth_fact:str):
     url = "https://api.nobitex.ir/auth/login/"
-    payload={'username': 'saeedjefe@gmail.com',
-    'password': '860160Nobitex25400',
+    payload={'username': '',
+    'password': '',
     'remember': 'yes',
     'captcha': 'api',
     'useragent': 'TraderBot/your_bot'}
