@@ -12,8 +12,8 @@ class send_to_mysql:
     def sql_insertion(self):
         dbconfig = {
             'host' : '127.0.0.1',
-            'user' : 'saeedjefe',
-            'password' : '17221722',
+            'user' : '',
+            'password' : '',
             'database' : 'nobitex',
             }
         with Context(dbconfig) as cursor:
