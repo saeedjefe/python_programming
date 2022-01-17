@@ -14,6 +14,9 @@ class ast_agent:
             if key == 'balance':
                 self.balance = dic[key];
                 self.key = key
-                smsql = send_to_mysql(self.key, self.balance);
-                smsql.sql_insertion();
+                stms = send_to_mysql(self.key, self.balance);
+                stms.sql_insertion();
+
+            
+       
             
